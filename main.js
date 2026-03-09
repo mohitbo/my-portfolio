@@ -23,7 +23,7 @@ const themes = [
     index: "01",
     label: "About Me",
     accent: "#ff7a1a",
-    heroTitleLines: ["Mohit","Borse"],
+    heroTitleLines: ["Mohit", "Borse"],
     heroSubheadline: "Building the future, one line of code at a time.",
     heroCopy:
       "With expertise in Python, HTML5, CSS, JavaScript I create scalable web applications that solve real-world problems. Let's collaborate on your next project.",
@@ -52,7 +52,7 @@ const themes = [
     heroCopy:
       "From frontend frameworks to backend APIs, I work with cutting-edge tools to deliver high-performance, scalable solutions.",
     kicker: "What I do",
-    skills:[
+    skills: [
       { index: "#01", label: "JavaScript" },
       { index: "#02", label: "Python" },
       { index: "#03", label: "Data Science" },
@@ -539,7 +539,7 @@ function setupLoader() {
 
 function setupScrollReveal() {
   const revealElements = document.querySelectorAll('.section-header, .path-card, .project-card, .hobby-card, .testimonial-card, .reveal-staggered, .reveal-on-scroll');
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
