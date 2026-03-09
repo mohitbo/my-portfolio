@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohit Borse - Full Stack Developer & AI Enthusiast</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Global Loader -->
-    <div id="global-loader" class="loader-overlay">
-      <div class="loader-inner">
-        <div class="loader-logo">
-          <span class="logo-mark">A</span>
-          <span class="logo-text">Andynocode</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohit Borse - Full Stack Developer & AI Enthusiast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Global Loader -->
+  <div id="global-loader" class="loader-overlay">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="logo-mark">A</span>
+        <span class="logo-text">Andynocode</span>
+      </div>
+      <div class="loader-bar-wrapper">
+        <div class="loader-bar-track">
+          <div class="loader-bar-fill" id="loader-bar-fill"></div>
         </div>
-        <div class="loader-bar-wrapper">
-          <div class="loader-bar-track">
-            <div class="loader-bar-fill" id="loader-bar-fill"></div>
-          </div>
-          <div class="loader-meta">
-            <span id="loader-percent">0%</span>
-            <span class="loader-label">Loading cinematic frames…</span>
-          </div>
+        <div class="loader-meta">
+          <span id="loader-percent">0%</span>
+          <span class="loader-label">Loading cinematic frames…</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="page-shell">
-      <!-- Sticky Hero Scroll Wrapper -->
-      <section class="hero-scroll" id="top">
-        <div class="hero" id="hero">
-          <!-- Hero Background Frames -->
-          <div class="hero-bg">
-            <canvas id="hero-canvas" class="hero-canvas"></canvas>
-            <div class="hero-bottom-curve"></div>
-            <!-- Explore Navigation -->
+  <div class="page-shell">
+    <!-- Sticky Hero Scroll Wrapper -->
+    <section class="hero-scroll" id="top">
+      <div class="hero" id="hero">
+        <!-- Hero Background Frames -->
+        <div class="hero-bg">
+          <canvas id="hero-canvas" class="hero-canvas"></canvas>
+          <div class="hero-bottom-curve"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <header class="hero-content">
+          <!-- Left Identity Block -->
+          <div class="hero-left">
+            <!-- Explore Navigation: top-left, vertical list with toggle -->
             <nav class="hero-explore-nav" aria-label="Portfolio sections">
               <div class="theme-nav-header">
-                <span class="theme-nav-label">Explore</span>
-                <span
-                  class="theme-nav-loading"
-                  id="theme-nav-loading"
-                  aria-hidden="true"
-                >
+                <button class="explore-toggle-btn" type="button" aria-label="Toggle explore navigation"
+                  aria-expanded="false" aria-controls="theme-nav-list">
+                  <span class="theme-nav-label">Explore</span>
+                  <span class="explore-toggle-caret">▾</span>
+                </button>
+                <span class="theme-nav-loading" id="theme-nav-loading" aria-hidden="true">
                   Switching…
                 </span>
               </div>
@@ -56,505 +69,470 @@
                 <!-- Populated by JS -->
               </ul>
             </nav>
-          </div>
 
-          <!-- Hero Content -->
-          <header class="hero-content">
-            <!-- Left Identity Block -->
-            <div class="hero-left">
-              <div class="hero-kicker" id="hero-kicker">
-                Hi, I'm
-              </div>
-              <h1 class="hero-title">
-                <span id="hero-title-line-1">Mohit Borse</span>
-                <span id="hero-title-line-2">Portfolio</span>
-              </h1>
-              <p class="hero-intro" id="hero-intro">
-                A passionate full-stack developer specializing in modern web technologies,
-                AI integration, and creating stunning user experiences. I love turning ideas
-                into beautiful, functional applications.
-              </p>
-
-              <div class="hero-skills" id="hero-skills">
-                <div class="hero-skill">
-                  <span class="hero-skill-index">#01</span>
-                  <span class="hero-skill-label">Full Stack Development</span>
-                </div>
-                <div class="hero-skill">
-                  <span class="hero-skill-index">#02</span>
-                  <span class="hero-skill-label">AI Integration</span>
-                </div>
-                <div class="hero-skill">
-                  <span class="hero-skill-index">#03</span>
-                  <span class="hero-skill-label">UI/UX Design</span>
-                </div>
-                <div class="hero-skill">
-                  <span class="hero-skill-index">#04</span>
-                  <span class="hero-skill-label">Problem Solving</span>
-                </div>
-              </div>
+            <div class="hero-kicker" id="hero-kicker">
+              Hi, I'm
             </div>
+            <h1 class="hero-title">
+              <span id="hero-title-line-1">Mohit Borse</span>
+              <span id="hero-title-line-2">Portfolio</span>
+            </h1>
+            <p class="hero-intro" id="hero-intro">
+              A passionate full-stack developer specializing in modern web technologies,
+              AI integration, and creating stunning user experiences. I love turning ideas
+              into beautiful, functional websites.
+            </p>
 
-            <!-- Right Value Block -->
-            <div class="hero-right">
-              <div class="hero-theme-pill">
-                <span class="hero-theme-index" id="hero-theme-index">01</span>
-                <span class="hero-theme-label" id
-                id="hero-theme-label">
-                  Building Animated Websites
-                </span>
+            <div class="hero-skills" id="hero-skills">
+              <div class="hero-skill">
+                <span class="hero-skill-index">#01</span>
+                <span class="hero-skill-label">Full Stack Development</span>
               </div>
-              <h2 class="hero-subheadline" id="hero-subheadline">
-                Building the future, one line of code at a time.
-              </h2>
-              <p class="hero-copy" id="hero-copy">
-                With expertise in React, Node.js, Python, and AI technologies, I create
-                scalable web applications that solve real-world problems. Let's collaborate
-                on your next project.
-              </p>
-            </div>
-
-            <!-- Bottom Social Icons -->
-            <div class="hero-social">
-              <a href="#" class="social-icon" aria-label="Andynocode on YouTube">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M21.6 7.2s-.2-1.5-.8-2.2c-.8-.8-1.7-.8-2.1-.8C15.8 4 12 4 12 4h0s-3.8 0-6.7.2c-.4 0-1.3 0-2.1.8-.6.7-.8 2.2-.8 2.2S2 8.9 2 10.5v1c0 1.6.2 3.3.2 3.3s.2 1.5.8 2.2c.8.8 1.9.8 2.4.9 1.8.2 6.6.2 6.6.2s3.8 0 6.7-.2c.4 0 1.3 0 2.1-.8.6-.7.8-2.2.8-2.2s.2-1.6.2-3.3v-1c0-1.6-.2-3.3-.2-3.3zM10 14.7V8.8l5 3-5 2.9z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="https://www.instagram.com/_m__hit/?utm_source=qr&r=nametag"
-                class="social-icon"
-                aria-label="Mohit on Instagram"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3zm0 7.8A3.1 3.1 0 1 1 15.1 12 3.11 3.11 0 0 1 12 15.1z"
-                  />
-                  <circle cx="17.6" cy="6.4" r="1" />
-                  <path
-                    d="M17.8 3H6.2A3.2 3.2 0 0 0 3 6.2v11.6A3.2 3.2 0 0 0 6.2 21h11.6A3.2 3.2 0 0 0 21 17.8V6.2A3.2 3.2 0 0 0 17.8 3zm1.9 14.8a1.9 1.9 0 0 1-1.9 1.9H6.2a1.9 1.9 0 0 1-1.9-1.9V6.2A1.9 1.9 0 0 1 6.2 4.3h11.6a1.9 1.9 0 0 1 1.9 1.9z"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="social-icon" aria-label="Andynocode on X">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M18.9 4H16.6L13 8.5 9.9 4H4.8l4.9 7-4.8 6.1H7.2L11 11.8l3.4 5.3h4.1L13.5 10z"
-                  />
-                </svg>
-              </a>
-            </div>
-          </header>
-        </div>
-        <div class="hero-spacer" aria-hidden="true"></div>
-      </section>
-
-      <main>
-        <!-- About Section -->
-        <section id="about" class="section section-about">
-          <div class="section-inner">
-            <div class="section-header">
-              <p class="section-kicker">About Me</p>
-              <h2 class="section-title">
-                Passionate about technology and innovation
-              </h2>
-            </div>
-            <div class="about-grid">
-              <div class="about-visual">
-                <div class="about-portrait">
-                  <img src="my_image/html_mohit.jpeg" alt="Mohit Borse Portrait" class="about-portrait-img" />
-                </div>
+              <div class="hero-skill">
+                <span class="hero-skill-index">#02</span>
+                <span class="hero-skill-label">AI Integration</span>
               </div>
-              <div class="about-copy">
-                <p>
-                  I'm a beginner full-stack developer with a strong interest in data science. I know
-                  HTML, CSS, JavaScript, and Python, and I'm exploring machine learning and Java.
-                </p>
-                <p>
-                  At the start of my journey, I enjoy learning new technologies and building simple
-                  projects to improve my skills. I believe in continuous learning and sharing knowledge
-                  with the community.
-                </p>
-                <ul class="about-bullets">
-                  <li>Interested in data science</li>
-                  <li>Knowledge of HTML, CSS, and JavaScript</li>
-                  <li>Learning Python and Java</li>
-                  <li>Exploring machine learning</li>
-                  <li>Beginner in web development</li>
-                </ul>
-                <!-- GitHub streak image (replace USERNAME with your GitHub username) -->
-                <div class="github-streak">
-                  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mohitbo&theme=dark" alt="GitHub Streak" />
-                </div>
+              <div class="hero-skill">
+                <span class="hero-skill-index">#03</span>
+                <span class="hero-skill-label">UI/UX Design</span>
+              </div>
+              <div class="hero-skill">
+                <span class="hero-skill-index">#04</span>
+                <span class="hero-skill-label">Problem Solving</span>
               </div>
             </div>
           </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section id="paths" class="section section-paths">
-          <div class="section-inner">
-            <div class="section-header">
-              <p class="section-kicker">My expertise</p>
-              <h2 class="section-title">Technologies I work with</h2>
-            </div>
-            <div class="paths-grid">
-              <article class="path-card">
-                <h3>Frontend Development</h3>
-                <p>
-                  React, Vue.js, Angular, HTML5, CSS3, JavaScript (ES6+),
-                  TypeScript, responsive design, and modern UI frameworks.
-                </p>
-              </article>
-              <article class="path-card">
-                <h3>Backend Development</h3>
-                <p>
-                  Node.js, Express, Python (Django/Flask), REST APIs,
-                  GraphQL, database design, and server architecture.
-                </p>
-              </article>
-              <article class="path-card">
-                <h3>AI & Machine Learning</h3>
-                <p>
-                  TensorFlow, PyTorch, OpenAI API, computer vision,
-                  natural language processing, and AI integration.
-                </p>
-              </article>
-              <article class="path-card">
-                <h3>DevOps & Tools</h3>
-                <p>
-                  Docker, AWS/GCP, CI/CD pipelines, Git, testing frameworks,
-                  and performance optimization.
-                </p>
-              </article>
-              <article class="path-card">
-                <h3>Mobile Development</h3>
-                <p>
-                  React Native, Flutter, iOS/Android development,
-                  cross-platform solutions, and app store deployment.
-                </p>
-              </article>
-              <article class="path-card">
-                <h3>Database & Cloud</h3>
-                <p>
-                  MongoDB, PostgreSQL, Firebase, AWS services,
-                  serverless architecture, and data management.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="section section-projects">
-          <div class="section-inner">
-            <div class="section-header">
-              <p class="section-kicker">My work</p>
-              <h2 class="section-title">Featured projects</h2>
-            </div>
-            <div class="projects-grid">
-              <article class="project-card">
-                <div class="project-tag">React & AI</div>
-                <div class="project-thumb"></div>
-                <h3>AI-Powered Task Manager</h3>
-                <p>
-                  A smart task management app that uses AI to prioritize tasks,
-                  suggest deadlines, and provide productivity insights.
-                </p>
-              </article>
-              <article class="project-card">
-                <div class="project-tag">Full Stack</div>
-                <div class="project-thumb"></div>
-                <h3>E-commerce Platform</h3>
-                <p>
-                  Complete e-commerce solution with payment integration,
-                  inventory management, and admin dashboard.
-                </p>
-              </article>
-              <article class="project-card">
-                <div class="project-tag">Mobile App</div>
-                <div class="project-thumb"></div>
-                <h3>Fitness Tracking App</h3>
-                <p>
-                  Cross-platform mobile app for workout tracking, progress
-                  monitoring, and personalized fitness recommendations.
-                </p>
-              </article>
-              <article class="project-card">
-                <div class="project-tag">AI Integration</div>
-                <div class="project-thumb"></div>
-                <h3>Chatbot Platform</h3>
-                <p>
-                  Customizable chatbot builder with natural language processing,
-                  multiple integrations, and analytics dashboard.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Hobbies Section -->
-        <section id="hobbies" class="section section-hobbies">
-          <div class="section-inner">
-            <div class="section-header">
-              <p class="section-kicker">Beyond coding</p>
-              <h2 class="section-title">My interests & hobbies</h2>
-            </div>
-            <div class="hobbies-grid">
-              <article class="hobby-card">
-                <div class="hobby-icon">🎵</div>
-                <h3>Music Production</h3>
-                <p>
-                  Creating electronic music and exploring sound design.
-                  I enjoy mixing tracks and experimenting with different genres.
-                </p>
-              </article>
-              <article class="hobby-card">
-                <div class="hobby-icon">📚</div>
-                <h3>Reading</h3>
-                <p>
-                  Avid reader of science fiction, technology books, and
-                  personal development. Always learning something new.
-                </p>
-              </article>
-              <article class="hobby-card">
-                <div class="hobby-icon">🏃</div>
-                <h3>Running</h3>
-                <p>
-                  Regular runner who enjoys marathons and trail running.
-                  It's my way to clear my mind and stay healthy.
-                </p>
-              </article>
-              <article class="hobby-card">
-                <div class="hobby-icon">🎮</div>
-                <h3>Gaming</h3>
-                <p>
-                  Strategy games and RPGs are my favorites. I love the
-                  problem-solving and storytelling aspects of gaming.
-                </p>
-              </article>
-              <article class="hobby-card">
-                <div class="hobby-icon">📷</div>
-                <h3>Photography</h3>
-                <p>
-                  Capturing moments and exploring street photography.
-                  I enjoy the technical and artistic challenges.
-                </p>
-              </article>
-              <article class="hobby-card">
-                <div class="hobby-icon">✈️</div>
-                <h3>Travel</h3>
-                <p>
-                  Exploring new places and cultures. Travel inspires creativity
-                  and provides new perspectives on life.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section id="testimonials" class="section section-testimonials">
-          <div class="section-inner">
-            <div class="section-header">
-              <p class="section-kicker">Achievements</p>
-              <h2 class="section-title">Milestones & recognition</h2>
-            </div>
-            <div class="testimonials-grid">
-              <article class="testimonial-card">
-                <div class="testimonial-avatar"></div>
-                <div class="testimonial-body">
-                  <span class="testimonial-tag">Open Source</span>
-                  <p class="testimonial-quote">
-                    "Contributed to 50+ open source projects and maintain
-                    several popular libraries with over 100k downloads."
-                  </p>
-                  <p class="testimonial-name">GitHub Contributions</p>
-                </div>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-avatar"></div>
-                <div class="testimonial-body">
-                  <span class="testimonial-tag">Competitions</span>
-                  <p class="testimonial-quote">
-                    "Ranked in top 5% of global competitive programmers
-                    with expertise in algorithms and data structures."
-                  </p>
-                  <p class="testimonial-name">LeetCode Achievements</p>
-                </div>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-avatar"></div>
-                <div class="testimonial-body">
-                  <span class="testimonial-tag">Speaking</span>
-                  <p class="testimonial-quote">
-                    "Spoken at 15+ tech conferences about modern web development,
-                    AI integration, and full-stack architecture."
-                  </p>
-                  <p class="testimonial-name">Conference Speaker</p>
-                </div>
-              </article>
-              <article class="testimonial-card">
-                <div class="testimonial-avatar"></div>
-                <div class="testimonial-body">
-                  <span class="testimonial-tag">Education</span>
-                  <p class="testimonial-quote">
-                    "Completed advanced courses in machine learning and
-                    computer science from top universities."
-                  </p>
-                  <p class="testimonial-name">Continuous Learning</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" class="section section-faq">
-          <div class="section-inner">
-            <div class="section-header">
-              <p class="section-kicker">Q&A</p>
-              <h2 class="section-title">Frequently asked questions</h2>
-            </div>
-            <div class="faq-list" id="faq-list">
-              <article class="faq-item">
-                <button class="faq-question">
-                  <span>What technologies do you specialize in?</span>
-                  <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                  <p>
-                    I specialize in modern web technologies including React,
-                    Node.js, Python, and AI integration. I also work with
-                    cloud platforms like AWS and database systems.
-                  </p>
-                </div>
-              </article>
-              <article class="faq-item">
-                <button class="faq-question">
-                  <span>Do you take freelance projects?</span>
-                  <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                  <p>
-                    Yes! I'm available for freelance web development projects.
-                    I can help build websites, web apps, or integrate AI features.
-                    Contact me to discuss your project requirements.
-                  </p>
-                </div>
-              </article>
-              <article class="faq-item">
-                <button class="faq-question">
-                  <span>How do you approach problem-solving?</span>
-                  <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                  <p>
-                    I combine analytical thinking with creative solutions.
-                    I break down complex problems, research best practices,
-                    and implement efficient, scalable solutions.
-                  </p>
-                </div>
-              </article>
-              <article class="faq-item">
-                <button class="faq-question">
-                  <span>What are your current interests?</span>
-                  <span class="faq-toggle">+</span>
-                </button>
-                <div class="faq-answer">
-                  <p>
-                    I'm currently exploring AI/ML applications in web development,
-                    contributing to open-source projects, and learning about
-                    emerging web technologies and frameworks.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Final CTA -->
-        <section id="cta" class="section section-cta">
-          <div class="section-inner">
-            <div class="cta-body">
-              <div class="cta-text">
-                <p class="section-kicker">Let's work together</p>
-                <h2 class="section-title">
-                  Need a stunning website or AI-powered app?
-                </h2>
-                <p class="cta-copy">
-                  I specialize in creating modern, high-performance web applications
-                  with cutting-edge technologies. From concept to deployment,
-                  I'll bring your vision to life.
-                </p>
-              </div>
-              <div class="cta-actions">
-                <a href="mailto:your.email@example.com"
-                  class="btn btn-primary"
-                  id="btn-contact"
-                >
-                  Start Your Project
-                </a>
-                <a href="#projects" class="btn btn-ghost" id="btn-view-work">
-                  View My Work
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Footer -->
-      <footer class="site-footer">
-        <div class="footer-inner">
-          <div class="footer-brand">
-            <div class="footer-logo">
-              <span class="logo-mark">M</span>
-              <span class="logo-text" id="footer-community-name">
-                Mohit Borse
+          <!-- Right Value Block -->
+          <div class="hero-right">
+            <div class="hero-theme-pill">
+              <span class="hero-theme-index" id="hero-theme-index">01</span>
+              <span class="hero-theme-label" id id="hero-theme-label">
+                Building Animated Websites
               </span>
             </div>
-            <p class="footer-copy">
-              Full-stack developer crafting digital experiences with passion.
+            <h2 class="hero-subheadline" id="hero-subheadline">
+              Building the future, one line of code at a time.
+            </h2>
+            <p class="hero-copy" id="hero-copy">
+              With expertise in React, Node.js, Python, and AI technologies, I create
+              scalable websites that solve real-world problems. Let's collaborate
+              on your next project.
             </p>
           </div>
-          <nav class="footer-nav">
-            <a href="#about">About</a>
-            <a href="#paths">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#hobbies">Hobbies</a>
-            <a href="#testimonials">Achievements</a>
-            <a href="mailto:your.email@example.com">Contact</a>
-          </nav>
-          <div class="footer-meta">
-            <div class="footer-social">
-              <a href="https://github.com/yourusername" aria-label="GitHub" class="social-icon small">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                </svg>
-              </a>
-              <a href="https://leetcode.com/yourusername" aria-label="LeetCode" class="social-icon small">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 8.196a1.372 1.372 0 0 0-.437.96v6.608a1.372 1.372 0 0 0 .437.96l5.406 7.758a1.374 1.374 0 0 0 .961.438h6.608a1.374 1.374 0 0 0 .961-.438l5.406-7.758a1.372 1.372 0 0 0 .437-.96V9.156a1.372 1.372 0 0 0-.437-.96L21.052.438A1.374 1.374 0 0 0 20.091 0zm.941 1.74h4.726l4.764 6.836v4.848l-4.764 6.836H14.424L9.66 13.424V8.576l4.764-6.836zM16.5 8.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-3 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                </svg>
-              </a>
-              <a href="#" aria-label="LinkedIn" class="social-icon small">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
+
+          <!-- Bottom Social Icons -->
+          <div class="hero-social">
+            <a href="https://www.instagram.com/_m__hit/?utm_source=qr&r=nametag" class="social-icon"
+              aria-label="Mohit on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3zm0 7.8A3.1 3.1 0 1 1 15.1 12 3.11 3.11 0 0 1 12 15.1z" />
+                <circle cx="17.6" cy="6.4" r="1" />
+                <path
+                  d="M17.8 3H6.2A3.2 3.2 0 0 0 3 6.2v11.6A3.2 3.2 0 0 0 6.2 21h11.6A3.2 3.2 0 0 0 21 17.8V6.2A3.2 3.2 0 0 0 17.8 3zm1.9 14.8a1.9 1.9 0 0 1-1.9 1.9H6.2a1.9 1.9 0 0 1-1.9-1.9V6.2A1.9 1.9 0 0 1 6.2 4.3h11.6a1.9 1.9 0 0 1 1.9 1.9z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/mohit-borse-70058a256/" class="social-icon"
+              aria-label="Mohit on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M20.447 20.452H17.2v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.476-.9 1.636-1.85 3.369-1.85 3.602 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zM6.781 20.452H3.894V9h2.887v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+        </header>
+      </div>
+      <div class="hero-spacer" aria-hidden="true"></div>
+    </section>
+
+    <main>
+      <!-- About Section -->
+      <section id="about" class="section section-about">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">About Me</p>
+            <h2 class="section-title">
+              Passionate about technology and innovation
+            </h2>
+          </div>
+          <div class="about-grid">
+            <div class="about-visual">
+              <div class="about-portrait reveal-on-scroll">
+                <img src="my_image/html_mohit.jpeg" alt="Mohit Borse Portrait" class="about-portrait-img" />
+              </div>
             </div>
-            <p class="footer-copyright">
-              © <span id="footer-year"></span> Mohit Borse. All rights reserved.
-            </p>
+            <div class="about-copy">
+              <p>
+                I'm a beginner full-stack developer with a strong interest in data science. I know
+                HTML, CSS, JavaScript, and Python, and I'm exploring machine learning and Java.
+              </p>
+              <p>
+                At the start of my journey, I enjoy learning new technologies and building simple
+                projects to improve my skills. I believe in continuous learning and sharing knowledge
+                with the community.
+              </p>
+              <ul class="about-bullets">
+                <li>Interested in data science</li>
+                <li>Knowledge of HTML, CSS, and JavaScript</li>
+                <li>Learning Python and Java</li>
+                <li>Exploring machine learning</li>
+                <li>Beginner in web development</li>
+              </ul>
+              <!-- GitHub streak image (replace USERNAME with your GitHub username) -->
+              <div class="github-streak">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=mohitbo&theme=dark"
+                  alt="GitHub Streak" />
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
 
-    <script src="main.js" type="module"></script>
-  </body>
-  </html>
+      <!-- Skills Section -->
+      <section id="paths" class="section section-paths">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">My expertise</p>
+            <h2 class="section-title">Technologies I work with</h2>
+          </div>
+          <div class="paths-grid reveal-staggered">
+            <article class="path-card">
+              <h3>Frontend Development</h3>
+              <p>
+                React, Vue.js, Angular, HTML5, CSS3, JavaScript (ES6+),
+                TypeScript, responsive design, and modern UI frameworks.
+              </p>
+            </article>
+            <article class="path-card">
+              <h3>Backend Development</h3>
+              <p>
+                Node.js, Express, Python (Django/Flask), REST APIs,
+                GraphQL, database design, and server architecture.
+              </p>
+            </article>
+            <article class="path-card">
+              <h3>AI & Machine Learning</h3>
+              <p>
+                TensorFlow, PyTorch, OpenAI API, computer vision,
+                natural language processing, and AI integration.
+              </p>
+            </article>
+            <article class="path-card">
+              <h3>DevOps & Tools</h3>
+              <p>
+                Docker, AWS/GCP, CI/CD pipelines, Git, testing frameworks,
+                and performance optimization.
+              </p>
+            </article>
+            <article class="path-card">
+              <h3>Database & Cloud</h3>
+              <p>
+                MySQL, PostgreSQL, Firebase, AWS services,
+                serverless architecture, and data management.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
+      <!-- Projects Section -->
+      <section id="projects" class="section section-projects">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">My work</p>
+            <h2 class="section-title">Featured projects</h2>
+          </div>
+          <div class="projects-grid reveal-staggered">
+            <article class="project-card">
+              <div class="project-tag">React & AI</div>
+              <div class="project-thumb"></div>
+              <h3>AI-Powered Task Manager</h3>
+              <p>
+                A smart task management website that uses AI to prioritize tasks,
+                suggest deadlines, and provide productivity insights.
+              </p>
+            </article>
+            <article class="project-card">
+              <div class="project-tag">Full Stack</div>
+              <div class="project-thumb"></div>
+              <h3>E-commerce Platform</h3>
+              <p>
+                Complete e-commerce solution with payment integration,
+                inventory management, and admin dashboard.
+              </p>
+            </article>
+            <article class="project-card">
+              <div class="project-tag">Web Design</div>
+              <div class="project-thumb"></div>
+              <h3>Fitness Tracking Website</h3>
+              <p>
+                Cross-platform website for workout tracking, progress
+                monitoring, and personalized fitness recommendations.
+              </p>
+            </article>
+            <article class="project-card">
+              <div class="project-tag">AI Integration</div>
+              <div class="project-thumb"></div>
+              <h3>Chatbot Platform</h3>
+              <p>
+                Customizable chatbot builder with natural language processing,
+                multiple integrations, and analytics dashboard.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hobbies Section -->
+      <section id="hobbies" class="section section-hobbies">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">Beyond coding</p>
+            <h2 class="section-title">My interests & hobbies</h2>
+          </div>
+          <div class="hobbies-grid reveal-staggered">
+            <article class="hobby-card">
+              <div class="hobby-icon">🎵</div>
+              <h3>Music Production</h3>
+              <p>
+                Creating electronic music and exploring sound design.
+                I enjoy mixing tracks and experimenting with different genres.
+              </p>
+            </article>
+            <article class="hobby-card">
+              <div class="hobby-icon">📚</div>
+              <h3>Reading</h3>
+              <p>
+                Avid reader of science fiction, technology books, and
+                personal development. Always learning something new.
+              </p>
+            </article>
+            <article class="hobby-card">
+              <div class="hobby-icon">🏃</div>
+              <h3>Running</h3>
+              <p>
+                Regular runner who enjoys marathons and trail running.
+                It's my way to clear my mind and stay healthy.
+              </p>
+            </article>
+            <article class="hobby-card">
+              <div class="hobby-icon">🎮</div>
+              <h3>Gaming</h3>
+              <p>
+                Strategy games and RPGs are my favorites. I love the
+                problem-solving and storytelling aspects of gaming.
+              </p>
+            </article>
+            <article class="hobby-card">
+              <div class="hobby-icon">📷</div>
+              <h3>Photography</h3>
+              <p>
+                Capturing moments and exploring street photography.
+                I enjoy the technical and artistic challenges.
+              </p>
+            </article>
+            <article class="hobby-card">
+              <div class="hobby-icon">✈️</div>
+              <h3>Travel</h3>
+              <p>
+                Exploring new places and cultures. Travel inspires creativity
+                and provides new perspectives on life.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="section section-testimonials">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">Achievements</p>
+            <h2 class="section-title">Milestones & recognition</h2>
+          </div>
+          <div class="testimonials-grid reveal-staggered">
+            <article class="testimonial-card">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-body">
+                <span class="testimonial-tag">Full Stack</span>
+                <p class="testimonial-quote">
+                  "Successfully completed the Full Stack Web Development course from Apna College, 
+                  mastering HTML, CSS, JavaScript, and modern backend technologies."
+                </p>
+                <p class="testimonial-name">Apna College Completion</p>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-body">
+                <span class="testimonial-tag">Data Science</span>
+                <p class="testimonial-quote">
+                  "Currently exploring Data Science fundamentals, specifically focusing on data 
+                  manipulation and analysis using NumPy and Pandas."
+                </p>
+                <p class="testimonial-name">Learning Data Science</p>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-avatar"></div>
+              <div class="testimonial-body">
+                <span class="testimonial-tag">AI & ML</span>
+                <p class="testimonial-quote">
+                  "Deeply interested in Artificial Intelligence, I'm currently expanding my 
+                  knowledge in Machine Learning (ML) and Deep Learning (DL)."
+                </p>
+                <p class="testimonial-name">AI Exploration</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="section section-faq">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="section-kicker">Q&A</p>
+            <h2 class="section-title">Frequently asked questions</h2>
+          </div>
+          <div class="faq-list reveal-staggered" id="faq-list">
+            <article class="faq-item">
+              <button class="faq-question">
+                <span>What technologies do you specialize in?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  I specialize in modern web technologies including React,
+                  Node.js, Python, and AI integration. I also work with
+                  cloud platforms like AWS and database systems.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question">
+                <span>Do you take freelance projects?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes! I'm available for freelance web development projects.
+                  I can help build websites, web apps, or integrate AI features.
+                  Contact me to discuss your project requirements.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question">
+                <span>How do you approach problem-solving?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  I combine analytical thinking with creative solutions.
+                  I break down complex problems, research best practices,
+                  and implement efficient, scalable solutions.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question">
+                <span>What are your current interests?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  I'm currently exploring AI/ML applications in web development,
+                  contributing to open-source projects, and learning about
+                  emerging web technologies and frameworks.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section id="cta" class="section section-cta">
+        <div class="section-inner">
+          <div class="cta-body">
+            <div class="cta-text">
+              <p class="section-kicker">Let's work together</p>
+              <h2 class="section-title">
+                Need a stunning website?
+              </h2>
+              <p class="cta-copy">
+                I specialize in creating modern, high-performance websites
+                with cutting-edge technologies. From concept to deployment,
+                I'll bring your vision to life.
+              </p>
+            </div>
+            <div class="cta-actions">
+              <a href="mailto:mohitborse104@gmail.com" class="btn btn-primary" id="btn-contact">
+                Start Your Project
+              </a>
+              <a href="#projects" class="btn btn-ghost" id="btn-view-work">
+                View My Work
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-mark">M</span>
+            <span class="logo-text" id="footer-community-name">
+              Mohit Borse
+            </span>
+          </div>
+          <p class="footer-copy">
+            Full-stack developer crafting digital experiences with passion.
+          </p>
+        </div>
+        <nav class="footer-nav">
+          <a href="#about">About</a>
+          <a href="#paths">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#hobbies">Hobbies</a>
+          <a href="#testimonials">Achievements</a>
+          <a href="mailto:your.email@example.com">Contact</a>
+        </nav>
+        <div class="footer-meta">
+          <div class="footer-social">
+            <a href="https://github.com/mohitbo" aria-label="GitHub" class="social-icon small">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+            <a href="https://leetcode.com/u/mohitborse/" aria-label="LeetCode" class="social-icon small">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 8.196a1.372 1.372 0 0 0-.437.96v6.608a1.372 1.372 0 0 0 .437.96l5.406 7.758a1.374 1.374 0 0 0 .961.438h6.608a1.374 1.374 0 0 0 .961-.438l5.406-7.758a1.372 1.372 0 0 0 .437-.96V9.156a1.372 1.372 0 0 0-.437-.96L21.052.438A1.374 1.374 0 0 0 20.091 0zm.941 1.74h4.726l4.764 6.836v4.848l-4.764 6.836H14.424L9.66 13.424V8.576l4.764-6.836zM16.5 8.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-3 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-icon small">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+            </a>
+          </div>
+          <p class="footer-copyright">
+            © <span id="footer-year"></span> Mohit Borse. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>

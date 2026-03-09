@@ -228,22 +228,47 @@ function applySiteCopy() {
 }
 
 function renderHeroFrames() {
-  canvas = document.getElementById("hero-canvas");
-  if (!canvas) return;
+  const sizing = ensureCanvasSize();
+  if (!sizing) return;
 
+  canvas = sizing.canvas;
   ctx = canvas.getContext("2d");
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
 
-  // Draw first frame with proper scaling
+  // Draw first frame with proper scaling and aspect ratio
   if (preloadedImages.length > 0 && preloadedImages[0].complete) {
-    drawImageCover(preloadedImages[0], ctx, canvas.width, canvas.height);
+    drawImageCover(preloadedImages[0], ctx, sizing.width, sizing.height);
   }
 }
 
 function drawImageCover(img, ctx, canvasWidth, canvasHeight) {
   if (img && img.complete) {
-    ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+    const imgWidth = img.naturalWidth || img.width;
+    const imgHeight = img.naturalHeight || img.height;
+    if (!imgWidth || !imgHeight) {
+      ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+      return;
+    }
+
+    const imgRatio = imgWidth / imgHeight;
+    const canvasRatio = canvasWidth / canvasHeight;
+
+    let drawWidth, drawHeight, offsetX, offsetY;
+
+    if (canvasRatio > imgRatio) {
+      // Canvas is wider than image: match width, crop top/bottom
+      drawWidth = canvasWidth;
+      drawHeight = canvasWidth / imgRatio;
+      offsetX = 0;
+      offsetY = (canvasHeight - drawHeight) / 2;
+    } else {
+      // Canvas is taller than image: match height, crop sides
+      drawHeight = canvasHeight;
+      drawWidth = canvasHeight * imgRatio;
+      offsetX = (canvasWidth - drawWidth) / 2;
+      offsetY = 0;
+    }
+
+    ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
   } else {
     // Fallback: draw a gradient background
     const gradient = ctx.createLinearGradient(0, 0, 0, canvasHeight);
@@ -252,6 +277,33 @@ function drawImageCover(img, ctx, canvasWidth, canvasHeight) {
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
   }
+}
+
+function ensureCanvasSize() {
+  const heroCanvas = document.getElementById("hero-canvas");
+  if (!heroCanvas) return null;
+
+  const dpr = window.devicePixelRatio || 1;
+  const displayWidth = heroCanvas.clientWidth || heroCanvas.offsetWidth || 0;
+  const displayHeight = heroCanvas.clientHeight || heroCanvas.offsetHeight || 0;
+
+  if (!displayWidth || !displayHeight) {
+    return null;
+  }
+
+  const targetWidth = Math.round(displayWidth * dpr);
+  const targetHeight = Math.round(displayHeight * dpr);
+
+  if (heroCanvas.width !== targetWidth || heroCanvas.height !== targetHeight) {
+    heroCanvas.width = targetWidth;
+    heroCanvas.height = targetHeight;
+  }
+
+  return {
+    canvas: heroCanvas,
+    width: targetWidth,
+    height: targetHeight,
+  };
 }
 
 function mapScrollToFrame() {
@@ -272,19 +324,23 @@ function mapScrollToFrame() {
   const nextFrame = Math.min(frameCount - 1, currentFrame + 1);
   const blend = frameProgress - currentFrame;
 
+  // Ensure canvas matches current display size (important on mobile)
+  const sizing = ensureCanvasSize();
+  if (!sizing) return;
+
   // Clear canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, sizing.width, sizing.height);
 
   // Draw current frame
   if (preloadedImages[currentFrame] && preloadedImages[currentFrame].complete) {
     ctx.globalAlpha = 1 - blend;
-    drawImageCover(preloadedImages[currentFrame], ctx, canvas.width, canvas.height);
+    drawImageCover(preloadedImages[currentFrame], ctx, sizing.width, sizing.height);
   }
 
   // Draw next frame
   if (nextFrame !== currentFrame && preloadedImages[nextFrame] && preloadedImages[nextFrame].complete) {
     ctx.globalAlpha = blend;
-    drawImageCover(preloadedImages[nextFrame], ctx, canvas.width, canvas.height);
+    drawImageCover(preloadedImages[nextFrame], ctx, sizing.width, sizing.height);
   }
 
   ctx.globalAlpha = 1; // Reset
@@ -303,14 +359,24 @@ function throttle(fn, wait) {
 
 function setupScrollHandler() {
   const handler = throttle(() => {
-    if (canvas) {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    }
     mapScrollToFrame();
   }, 16);
   window.addEventListener("scroll", handler, { passive: true });
-  window.addEventListener("resize", handler, { passive: true });
+
+  const resizeHandler = throttle(() => {
+    const sizing = ensureCanvasSize();
+    if (!sizing || !canvas || !ctx) return;
+    mapScrollToFrame();
+  }, 100);
+
+  window.addEventListener("resize", resizeHandler, { passive: true });
+
+  // Initial sizing + first frame render
+  const initialSizing = ensureCanvasSize();
+  if (initialSizing) {
+    canvas = initialSizing.canvas;
+    ctx = canvas.getContext("2d");
+  }
   handler();
 }
 
@@ -357,6 +423,29 @@ function buildThemeNav() {
 
     button.addEventListener("click", () => switchTheme(theme.id));
   });
+}
+
+function setupExploreToggle() {
+  const nav = document.querySelector(".hero-explore-nav");
+  if (!nav) return;
+
+  const toggleBtn = nav.querySelector(".explore-toggle-btn");
+  const list = document.getElementById("theme-nav-list");
+  if (!toggleBtn || !list) return;
+
+  const updateExpanded = () => {
+    const isOpen = nav.classList.contains("is-open");
+    toggleBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  };
+
+  toggleBtn.addEventListener("click", () => {
+    nav.classList.toggle("is-open");
+    updateExpanded();
+  });
+
+  // Start collapsed on small screens; open on larger screens via media queries
+  nav.classList.remove("is-open");
+  updateExpanded();
 }
 
 function switchTheme(themeId) {
@@ -442,9 +531,36 @@ function setupLoader() {
       applySiteCopy();
       renderHeroFrames();
       buildThemeNav();
+      setupExploreToggle();
       setupScrollHandler();
     }
   );
+}
+
+function setupScrollReveal() {
+  const revealElements = document.querySelectorAll('.section-header, .path-card, .project-card, .hobby-card, .testimonial-card, .reveal-staggered, .reveal-on-scroll');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target.classList.contains('reveal-staggered')) {
+          const children = entry.target.children;
+          Array.from(children).forEach((child, index) => {
+            child.style.setProperty('--delay', `${index * 0.15}s`);
+          });
+        }
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealElements.forEach(el => {
+    if (!el.classList.contains('reveal-staggered')) {
+      el.classList.add('reveal-on-scroll');
+    }
+    observer.observe(el);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
